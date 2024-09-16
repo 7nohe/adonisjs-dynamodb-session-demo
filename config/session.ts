@@ -42,6 +42,15 @@ const sessionConfig = defineConfig({
    */
   stores: {
     cookie: stores.cookie(),
+    dynamodb: stores.dynamodb({
+      clientConfig:
+        env.get('NODE_ENV') !== 'production'
+          ? {
+              endpoint: 'http://localhost:8000',
+            }
+          : {},
+      tableName: env.get('DYNAMODB_SESSION_TABLE'),
+    }),
   },
 })
 
