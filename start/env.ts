@@ -25,6 +25,8 @@ export default await Env.create(new URL('../', import.meta.url), {
   */
   SESSION_DRIVER: Env.schema.enum(['cookie', 'memory', 'dynamodb'] as const),
   DYNAMODB_SESSION_TABLE: Env.schema.string.optional(),
+  DYNAMODB_ENDPOINT: Env.schema.string.optional(),
+
   /*
   |----------------------------------------------------------
   | Variables for configuring database connection
